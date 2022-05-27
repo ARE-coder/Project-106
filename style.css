@@ -1,0 +1,21 @@
+body{
+    background-color:rgb(138, 43, 226);
+    color: blue;
+    font-size: 18px;
+
+}
+#imag{
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    text-align: center;
+}
+#top{
+    background-color: rgb(140, 40, 230);
+    color:aquamarine;
+    font-size: 13px;
+    font-family:'Times New Roman', Times, serif;
+}
+.sight{
+    text-align:center;
+}
