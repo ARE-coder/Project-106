@@ -1,52 +1,21 @@
-.heading
-{
-    font-size: 23px;
-    width: 100%;
-    margin:0px;
+body{
+    background-color:rgb(138, 43, 226);
+    color: blue;
+    font-size: 18px;
+
 }
-.Note
-{
-    font-size: 15px;
-    color: black;
+#imag{
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    text-align: center;
 }
-body
-{
-    background-size: cover;
+#top{
+    background-color: rgb(140, 40, 230);
+    color:aquamarine;
+    font-size: 13px;
+    font-family:'Times New Roman', Times, serif;
 }
-.Div_speed
-{
-    float:left;
-}
-.Div_speed_img
-{
-    border-radius: 100%;
-    width:200px;
-}
-#speed
-{
-    margin: 10px;
-    font-size:23px;
-}
-.Div_volume
-{
-    float:right;
-}
-.Div_volume_img
-{
-    border-radius: 100%;
-    width:200px;
-}
-#volume
-{
-    margin: 10px;
-    font-size:23px;
-}
-.play
-{
-    width: 130px;
-    font-size: 23px;
-}
-canvas{
-    border: 5px solid white;
-    border-radius: 20px;
+.sight{
+    text-align:center;
 }
