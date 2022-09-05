@@ -1,40 +1,53 @@
-function speak()
-{
-    var synth = window.speechSynthesis
-    var Utterthis = "There is a" + animal;
-    var Talk = new SpeechSynthesisUtterance(Utterthis)
-    synth.speak(Talk);
-}
-function SC()
-{
-classifier = ml5.soundClassifier("https://teachablemachine.withgoogle.com/models/q2j7t4zbO/model.json", { probabilityThreshold: 0.7 }, modelReady)
-navigator.mediaDevices.getUserMedia({audio : true , video : false })
-}
-function modelReady()
-{
-    console.log("The model is ready to be used\n 👍");
-    classifier.classify(gotResults);
-}
-function gotResults(error, results)
-{
-     if(error)
-     {
-         console.error(error)
-     } else
-       {
-           console.log(results)
-         document.getElementById("O").innerHTML = results[0].label 
-         document.getElementById("A").innerHTML = Math.round(results[0].confidence*100).toFixed(2) + "%"
-         var I = document.getElementById("Imag");
+song = "";
+LwristX = 0
+LwristY = 0
+RwristX = 0
+RwristY = 0
 
-         if(results[0].label == "Dogs")
-         {
-            I.src = "Bark.gif"
-         }else if( results[0].label == "Cats")
-         {
-            I.src = "Meow.gif"
-         }else{
-             I.src = "Ear.png"
-         }
-        }
+function preload()
+{
+    song = loadSund("Music.mp3");
+}
+function setup()
+{
+    canvas = createCanvas(600,600);
+    canvas.center();
+
+    video = createCapture(VIDEO)
+    video.hide()
+
+    poseNet = ml5.poseNet(video,modelLoaded)
+    poseNet.on('pose',gotPoses)
+}
+function modelLoaded()
+{
+    console.log("PoseNet has been intiallized\n You can now use it")
+}
+function draw()
+{
+    image(video,0,0,600,500);
+}
+function play()
+{
+    song.play()
+    song.setVolume(1)
+    song.rate(1)
+}
+function gotPoses(results)
+{
+    if(results.length > 0 )
+    {
+        console.log(results)
+        LwristX = results[0].pose.leftWrist.x 
+        LwristY = results[0].pose.rightWrist.y 
+
+        RwristX = results[0].pose.rightWrist.x 
+        RwristY = results[0].pose.rightWrist.y 
+
+        console.log("Left wirst's x co-ordinates is " + LwristX + "Left wirst's y co-ordinates is " + LwristY)
+
+        console.log("Right wirst's x co-ordinates is " + RwristX + "Right wirst's y co-ordinates is " + RwristY)
+
+
+    }
 }
